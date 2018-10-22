@@ -1,0 +1,1 @@
+angular.module('appEasyFit', ['ui.router', 'ngAnimate','toastr'])
