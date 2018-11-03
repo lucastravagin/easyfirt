@@ -6,7 +6,7 @@ angular.module('appEasyFit').config([
         url: "/dashboard",
         templateUrl: "dashboard/dashboard.html"
       }).state('billingCycle', {
-        url: "/billingCycles?page",
+        url: "/billingCycle?page",
         templateUrl: "billingCycle/tabs.html"
       })
   
