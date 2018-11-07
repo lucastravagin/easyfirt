@@ -1,0 +1,22 @@
+<content-header name="Controle de Avaliação Física" small="Cadastro"></content-header>
+
+<section class="content">
+    <div class="nav-tabs-custom" ng-controller="physicalAssessmentController">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href data-target="#tabCreate" data-toggle="tab">
+                    <i class="fa fa-plus"></i> Nova Avaliação
+                </a>
+            </li>
+            <li>
+                <a href data-target="#tabTeste" data-toggle="tab">
+                    <i class="fa fa-bars"></i> Nova Avaliação
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" id="tabCreate" ng-include="'physicalAssessment/form.html'"></div>
+            <div class="tab-pane" id="tabTeste" ng-include="'physicalAssessment/form.html'"></div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,41 @@
+<div role="form">
+    <div class="box-body">
+        <p class="margin">Pesquisar Aluno</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="resultPreencheCampo.nome" ng-disabled="true">
+                    <span class="input-group-btn">
+                        <button data-toggle="modal" data-target="#myModal" type="button" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <field id="dataNascimento" label="Data de Nascimento" model="resultPreencheCampo.dataNascimento"  grid="12 3 2" readonly="true"></field>
+        <field id="sexo" label="Sexo" model="resultPreencheCampo.sexo" grid="12 3 2" readonly="true"></field>
+        <field id="objetivo" label="Objetivo" model="resultPreencheCampo.objetivo"  grid="12 4 2" readonly="true"></field>
+        <field id="peso" label="Peso" model="student.peso"  grid="12 3 2"></field>
+        <field id="altura" label="Altura" model="student.altura"  grid="12 3 2"></field>
+        <field id="subescapular: " label="Subescapular" model="student.subescapular"  grid="12 3 2"></field>
+        <field id="auxiliar_media: " label="Axilar Média" model="student.auxiliar_media"  grid="12 3 2"></field>
+        <field id="triceps: " label="Tríceps" model="student.triceps"  grid="12 3 2"></field>
+        <field id="coxa" label="Coxa" model="student.coxa"  grid="12 3 2"></field>
+        <field id="supra_iliaca" label="Supra-ilíaca" model="student.supra_iliaca"  grid="12 3 2"></field>
+        <field id="abdome" label="Abdome" model="student.abdome"  grid="12 3 2"></field>
+        <field id="peitoral" label="Peitoral" model="student.peitoral"  grid="12 3 2"></field>
+
+        <div class="row">
+            <value-box grid="4" color-class="bg-green" icon-class="fa fa-bank"
+              value="(%) {{ dashboard.credit | number: 2  }}" text="Percentual Massa Gorda (%)"></value-box>
+            <value-box grid="4" color-class="bg-red" icon-class="fa fa-credit-card"
+              value="Kg {{ dashboard.debt | number: 2  }}" text="Massa Gorda (Kg)"></value-box>
+            <value-box grid="4" color-class="bg-blue" icon-class="fa fa-money"
+              value="Kg {{ dashboard.total | number: 2  }}" text="Massa Magra (Kg)"></value-box>
+        </div>
+
+        
+    </div>
+    
+</div>
+<div ng-include="'physicalAssessment/searchStudent.html'"></div>

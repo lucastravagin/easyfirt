@@ -19,6 +19,11 @@ module.exports = function(server) {
 
     const billingCycleService = require('../api/billingCycle/billingCycleService') 
     billingCycleService.register(protectedApi, '/billingCycle')
+
+    const studentService = require('../api/student/studentService')
+    studentService.register(protectedApi, '/students')
+
     const billingSummaryService = require('../api/billingSumary/billingSumaryService') 
     protectedApi.route('/billingSummary').get(billingSummaryService.getSummary)
+    
 }

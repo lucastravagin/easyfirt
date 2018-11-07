@@ -1,0 +1,22 @@
+<div class="box-body" >
+    <table class="table">
+      <thead>
+        <tr ng-if="students.length > 0">
+          <th>Nome</th>
+          <th>Data de Nascimento</th>
+          <th>CPF</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="student in students">
+          <td>{{:: student.nome }}</td>
+          <td>{{:: student.dataNascimento }}</td>
+          <td>{{:: student.cpf }}</td>
+          <td style="width:100px;">
+            <button class="btn btn-primary" data-dismiss="modal" ng-click="preencheCampo(student)"><i class="fa fa-check"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 

@@ -67,9 +67,7 @@ const signup = (req, res, next) => {
             errors: ['Senhas não conferem.']
         })
     }
-    User.findOne({
-        email
-    }, (err, user) => {
+    User.findOne({email}, (err, user) => {
         if (err) {
             return sendErrorsFromDB(res, err)
         } else if (user) {
@@ -77,11 +75,7 @@ const signup = (req, res, next) => {
                 errors: ['Usuário já cadastrado.']
             })
         } else {
-            const newUser = new User({
-                name,
-                email,
-                password: passwordHash
-            })
+            const newUser = new User({name,email,password: passwordHash})
             newUser.save(err => {
                 if (err) {
                     return sendErrorsFromDB(res, err)

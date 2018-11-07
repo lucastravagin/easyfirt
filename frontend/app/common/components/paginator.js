@@ -1,4 +1,5 @@
-angular.module('appEasyFit').component('paginator', {
+(function() {
+  angular.module('appEasyFit').component('paginator', {
     bindings: {
       url: '@',
       pages: '@',
@@ -34,3 +35,4 @@ angular.module('appEasyFit').component('paginator', {
        </ul>
     `
  });
+})()

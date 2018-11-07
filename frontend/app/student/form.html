@@ -1,0 +1,36 @@
+<div role="form">
+    <div class="box-body">
+        <field id="nome" label="Nome" model="student.nome" placeholder="Informe o Nome" grid="12 6 4" readonly="tabDelete"></field>
+        <field id="rgAluno" label="RG" model="student.rg" placeholder="Informe o RG" grid="12 6 4" readonly="tabDelete"></field>
+        <field id="cpfAluno" label="CPF" model="student.cpf" placeholder="Informe o CPF" grid="12 6 4" readonly="tabDelete"></field>
+        <field id="dataNascimentoAluno" label="Data de Nascimento" model="student.dataNascimento" placeholder="Informe a data de nascimento"
+            grid="12 6 4" readonly="tabDelete"></field>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="form-group">
+                <label for="sexo">Sexo</label>
+                <select class="form-control" id="sexo" ng-model="student.sexo" value="student.sexo">
+                    <option>Masculino</option>
+                    <option>Feminino</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="form-group">
+                <label for="objetivo">Objetivo</label>
+                <select class="form-control" id="objetivo" ng-model="student.objetivo" value="student.objetivo">
+                    <option>Perda de Peso</option>
+                    <option>Ganho de Peso</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="box-footer">
+        <button class="btn btn-primary" ng-click="createStudent()"
+        ng-if="tabCreate">Incluir</button>
+        <button class="btn btn-info" ng-click="updateStudent()"
+        ng-if="tabUpdate">Alterar</button>
+        <button class="btn btn-danger" ng-click="deleteStudent(student)"
+        ng-if="tabDelete">Excluir</button>
+        <button class="btn btn-default" ng-click="getStudent()">Cancelar</button>
+      </div>
+</div>

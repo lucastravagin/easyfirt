@@ -1,0 +1,29 @@
+<div class="box-body" >
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Data de Nascimento</th>
+          <th>Sexo</th>
+          <th>RG</th>
+          <th>CPF</th>
+          <th>Objetivo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="student in students">
+          <td>{{:: student.nome }}</td>
+          <td>{{:: student.dataNascimento }}</td>
+          <td>{{:: student.sexo }}</td>
+          <td>{{:: student.rg }}</td>
+          <td>{{:: student.cpf }}</td>
+          <td>{{:: student.objetivo }}</td>
+          <td style="width:100px;">
+            <button class="btn btn-warning" ng-click="showTabUpdate(student)"><i class="fa fa-pencil"></i></button>
+            <button class="btn btn-danger" ng-click="showTabDelete(student)"><i class="fa fa-trash-o"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 
