@@ -15,7 +15,7 @@
         const url = 'http://localhost:3003/api/billingCycle'
 
 
- 
+        
 
         $scope.refresh = function() {
             const page = parseInt($location.search().page) || 1
@@ -67,7 +67,8 @@
 
         $scope.update = function() {
             const updateUrl = `${url}/${vm.billingCycle._id}`
-            $http.put(updateUrl, vm.billingCycle).then(function(respponse) {
+            $http.put(updateUrl, vm.billingCycle).then(function(response) {
+
                 $scope.refresh()
                 msgs.addSuccess('Operações realizada com sucesso!')
             }).catch(function(resp) {

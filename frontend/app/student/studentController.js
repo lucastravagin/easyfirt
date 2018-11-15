@@ -6,10 +6,11 @@
         '$location',
         'tabs',
         'consts',
+        '$rootScope',
         StudentController
     ])
 
-    function StudentController($scope,$http, msgs, $location,tabs,consts) {
+    function StudentController($scope,$http, msgs, $location,tabs,consts, $rootScope) {
 
         const url = `${consts.apiUrl}/students`
 
@@ -19,6 +20,7 @@
             const urlGet = `${url}/?skip=${(page - 1) * 10}&limit=10`
             $http.get(urlGet).then(function(resp) {
               $scope.students = resp.data
+              console.log(resp.data)
               $scope.student = {}
               $http.get(`${url}/count`).then(function(resp) {
                 $scope.pages = Math.ceil(resp.data.value / 10)
@@ -46,6 +48,11 @@
         $scope.showTabDelete = function(student) {
             $scope.student  = student
             tabs.show($scope, {tabDelete: true})
+        }
+
+        $scope.showDashboardStudent = function(student) {
+            console.log(student)
+            $rootScope.studentDashboard  = student
         }
 
         $scope.deleteStudent = function() {

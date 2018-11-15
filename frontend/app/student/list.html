@@ -18,7 +18,8 @@
           <td>{{:: student.rg }}</td>
           <td>{{:: student.cpf }}</td>
           <td>{{:: student.objetivo }}</td>
-          <td style="width:100px;">
+          <td style="width:180px;">
+            <a ui-sref="dashboardStudent" class="btn btn-info" ng-click="showDashboardStudent(student)"><i class="fa fa-eye"></i></a>
             <button class="btn btn-warning" ng-click="showTabUpdate(student)"><i class="fa fa-pencil"></i></button>
             <button class="btn btn-danger" ng-click="showTabDelete(student)"><i class="fa fa-trash-o"></i></button>
           </td>

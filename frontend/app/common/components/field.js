@@ -7,7 +7,8 @@
           grid: '@',
           model: '=',
           placeholder: '@',
-          readonly: '<'
+          readonly: '<',
+   
         },
         controller: [
           'gridSystem',
@@ -19,9 +20,9 @@
          <div class="{{ $ctrl.gridClasses }}">
            <div class="form-group">
              <label for="{{ $ctrl.id }}">{{ $ctrl.label }}</label>
-             <input ng-model="$ctrl.model" id="{{ $ctrl.id }}" class="form-control"
+             <input value="{{ $ctrl.default }}" ng-model="$ctrl.model" id="{{ $ctrl.id }}" class="form-control"
                 type="{{ $ctrl.type }}" placeholder="{{ $ctrl.placeholder }}"
-                ng-readonly="$ctrl.readonly" />
+                ng-readonly="$ctrl.readonly"  />
            </div>
          </div>
         `

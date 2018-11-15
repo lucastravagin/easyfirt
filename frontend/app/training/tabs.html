@@ -1,0 +1,17 @@
+<content-header name="Ficha de Treinamento" small="Cadastro"></content-header>
+
+<section class="content">
+        <div class="nav-tabs-custom" ng-controller="TrainingCtrl">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href data-target="#tabCreate" data-toggle="tab">
+                        <i class="fa fa-plus"></i> Nova Ficha de Treino
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tabCreate" ng-include="'training/form.html'"></div>
+                
+            </div>
+        </div>
+</section>
