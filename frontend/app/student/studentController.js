@@ -20,7 +20,6 @@
             const urlGet = `${url}/?skip=${(page - 1) * 10}&limit=10`
             $http.get(urlGet).then(function(resp) {
               $scope.students = resp.data
-              console.log(resp.data)
               $scope.student = {}
               $http.get(`${url}/count`).then(function(resp) {
                 $scope.pages = Math.ceil(resp.data.value / 10)
@@ -51,8 +50,32 @@
         }
 
         $scope.showDashboardStudent = function(student) {
-            console.log(student)
+            var obj = student.avaliacoesFisicas
+            var ultimaAval = obj[obj.length - 1]
+            $rootScope.ultimaAvalicao = ultimaAval
+            var objSegunda = student.segunda
+            var objTerca = student.terca
+            var objQuarta = student.quarta
+            var objQuinta = student.quinta
+            var objSexta = student.sexta
+            var objSabado = student.sabado
+
+            var treinoSegunda = objSegunda[objSegunda.length - 1]
+            var treinoTerca = objTerca[objTerca.length - 1]
+            var treinoQuarta = objQuarta[objQuarta.length - 1]
+            var treinoQuinta = objQuinta[objQuinta.length - 1]
+            var treinoSexta = objSexta[objSexta.length - 1]
+            var treinoSabado = objSabado[objSabado.length - 1]
+
+            $rootScope.treinoSegunda = treinoSegunda
+            $rootScope.treinoTerca = treinoTerca
+            $rootScope.treinoQuarta = treinoQuarta
+            $rootScope.treinoQuinta = treinoQuinta
+            $rootScope.treinoSexta = treinoSexta
+            $rootScope.treinoSabado = treinoSabado
+    
             $rootScope.studentDashboard  = student
+
         }
 
         $scope.deleteStudent = function() {
@@ -75,6 +98,8 @@
                 msgs.addError(resp.data.errors)
             })
         }
+
+        
 
     }
 })()

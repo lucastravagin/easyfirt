@@ -3,8 +3,13 @@
         <field id="nome" label="Nome" model="student.nome" placeholder="Informe o Nome" grid="12 6 4" readonly="tabDelete"></field>
         <field id="rgAluno" label="RG" model="student.rg" placeholder="Informe o RG" grid="12 6 4" readonly="tabDelete"></field>
         <field id="cpfAluno" label="CPF" model="student.cpf" placeholder="Informe o CPF" grid="12 6 4" readonly="tabDelete"></field>
-        <field id="dataNascimentoAluno" label="Data de Nascimento" model="student.dataNascimento" placeholder="Informe a data de nascimento"
-            grid="12 6 4" readonly="tabDelete"></field>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="form-group">
+                <label for="dataNascimento">Data de Nacimento</label>
+                <input  ng-model="student.dataNascimento" id="dataNascimento" class="form-control" type="text"
+                 ng-readonly="tabDelete" onkeypress="mascaraData(this)"/>
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="form-group">
                 <label for="sexo">Sexo</label>
@@ -25,12 +30,9 @@
         </div>
     </div>
     <div class="box-footer">
-        <button class="btn btn-primary" ng-click="createStudent()"
-        ng-if="tabCreate">Incluir</button>
-        <button class="btn btn-info" ng-click="updateStudent()"
-        ng-if="tabUpdate">Alterar</button>
-        <button class="btn btn-danger" ng-click="deleteStudent(student)"
-        ng-if="tabDelete">Excluir</button>
+        <button class="btn btn-primary" ng-click="createStudent()" ng-if="tabCreate">Incluir</button>
+        <button class="btn btn-info" ng-click="updateStudent()" ng-if="tabUpdate">Alterar</button>
+        <button class="btn btn-danger" ng-click="deleteStudent(student)" ng-if="tabDelete">Excluir</button>
         <button class="btn btn-default" ng-click="getStudent()">Cancelar</button>
-      </div>
+    </div>
 </div>

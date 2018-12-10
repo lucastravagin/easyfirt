@@ -22,6 +22,9 @@ angular.module('appEasyFit').config([
     }).state('training', {
       url: "/training",
       templateUrl: "training/tabs.html"
+    }).state('treinamento', {
+      url: "/treinamento",
+      templateUrl: "treinamento/tabs.html"
     })
 
     $httpProvider.interceptors.push('handleResponseError')

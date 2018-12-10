@@ -13,69 +13,80 @@
             </div>
         </div>
         <hr>
-        <div class="row">
-            <div class="col-xs-6 col-sm-6">
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">Segunda-Feira</h3>
+        <div ng-if="resultPreencheCampo.nome.length > 0">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Segunda-Feira</h3>
+                        </div>
+                        <div class="box-body no-padding">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Exercício</th>
+                                        <th>Série</th>
+                                        <th>Carga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="segunda in resultPreencheCampo.segunda">
+                                        <td>
+                                            <select ng-model="segunda.exercicio" class="form-control">
+                                                <option ng-repeat="treino in selectTreino">{{treino.descricao}}</option>
+                                            </select>
+                                        </td>
+                                        <td style="width:70px"><input ng-model="segunda.serie" class="form-control"></td>
+                                        <td style="width:70px"><input ng-model="segunda.carga" class="form-control"></td>
+                                        <td style="width:150px;">
+                                            <button class="btn btn-success" ng-click="addSegunda($index)"><i class="fa fa-plus"></i></button>
+                                            <button class="btn btn-warning" ng-click="cloneSegunda($index,credit)"><i
+                                                    class="fa fa-clone"></i></button>
+                                            <button class="btn btn-danger" ng-click="deleteSegunda($index)"><i class="fa fa-trash-o"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                    <div class="box-body no-padding">
-                        <table class="table table-condensed">
-                            <thead>
-                                <tr>
-                                    <th>Exercício</th>
-                                    <th>Série</th>
-                                    <th>Carga</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input class="form-control"></td>
-                                    <td style="width:70px"><input class="form-control"></td>
-                                    <td style="width:70px"><input class="form-control"></td>
-                                    <td style="width:150px;">
-                                        <button class="btn btn-success" ng-click="addCredit($index)"><i class="fa fa-plus"></i></button>
-                                        <button class="btn btn-warning" ng-click="cloneCredit($index,credit)"><i class="fa fa-clone"></i></button>
-                                        <button class="btn btn-danger" ng-click="deleteCredit($index)"><i class="fa fa-trash-o"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Terça-Feira</h3>
+                        </div>
+                        <div class="box-body no-padding">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Exercício</th>
+                                        <th>Série</th>
+                                        <th>Carga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="terca in resultPreencheCampo.terca">
+                                        <td>
+                                            <select ng-model="terca.exercicio" class="form-control">
+                                                <option ng-repeat="treino in selectTreino">{{treino.descricao}}</option>
+                                            </select>
+                                        </td>
+                                        <td style="width:70px"><input ng-model="terca.serie" class="form-control"></td>
+                                        <td style="width:70px"><input ng-model="terca.carga" class="form-control"></td>
+                                        <td style="width:150px;">
+                                            <button class="btn btn-success" ng-click="addTerca($index)"><i class="fa fa-plus"></i></button>
+                                            <button class="btn btn-warning" ng-click="cloneTerca($index,credit)"><i
+                                                    class="fa fa-clone"></i></button>
+                                            <button class="btn btn-danger" ng-click="deleteTerca($index)"><i class="fa fa-trash-o"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-6 col-sm-6">
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">Terça-Feira</h3>
-                    </div>
-                    <div class="box-body no-padding">
-                        <table class="table table-condensed">
-                            <thead>
-                                <tr>
-                                    <th>Exercício</th>
-                                    <th>Série</th>
-                                    <th>Carga</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input class="form-control"></td>
-                                    <td style="width:70px;"><input class="form-control"></td>
-                                    <td style="width:70px;;"><input class="form-control"></td>
-                                    <td style="width:150px;">
-                                        <button class="btn btn-success" ng-click="addCredit($index)"><i class="fa fa-plus"></i></button>
-                                        <button class="btn btn-warning" ng-click="cloneCredit($index,credit)"><i class="fa fa-clone"></i></button>
-                                        <button class="btn btn-danger" ng-click="deleteCredit($index)"><i class="fa fa-trash-o"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
+            <div class="row">
                 <div class="col-xs-6 col-sm-6">
                     <div class="box">
                         <div class="box-header">
@@ -91,14 +102,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><input class="form-control"></td>
-                                        <td style="width:70px"><input class="form-control"></td>
-                                        <td style="width:70px"><input class="form-control"></td>
+                                    <tr ng-repeat="quarta in resultPreencheCampo.quarta">
+                                        <td>
+                                            <select ng-model="quarta.exercicio" class="form-control">
+                                                <option ng-repeat="treino in selectTreino">{{treino.descricao}}</option>
+                                            </select>
+                                        </td>
+                                        <td style="width:70px"><input ng-model="quarta.serie" class="form-control"></td>
+                                        <td style="width:70px"><input ng-model="quarta.carga" class="form-control"></td>
                                         <td style="width:150px;">
-                                            <button class="btn btn-success" ng-click="addCredit($index)"><i class="fa fa-plus"></i></button>
-                                            <button class="btn btn-warning" ng-click="cloneCredit($index,credit)"><i class="fa fa-clone"></i></button>
-                                            <button class="btn btn-danger" ng-click="deleteCredit($index)"><i class="fa fa-trash-o"></i></button>
+                                            <button class="btn btn-success" ng-click="addQuarta($index)"><i class="fa fa-plus"></i></button>
+                                            <button class="btn btn-warning" ng-click="cloneQuarta($index,credit)"><i
+                                                    class="fa fa-clone"></i></button>
+                                            <button class="btn btn-danger" ng-click="deleteQuarta($index)"><i class="fa fa-trash-o"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -121,14 +137,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><input class="form-control"></td>
-                                        <td style="width:70px;"><input class="form-control"></td>
-                                        <td style="width:70px;;"><input class="form-control"></td>
+                                    <tr ng-repeat="quinta in resultPreencheCampo.quinta">
+                                        <td>
+                                            <select ng-model="quinta.exercicio" class="form-control">
+                                                <option ng-repeat="treino in selectTreino">{{treino.descricao}}</option>
+                                            </select>
+                                        </td>
+                                        <td style="width:70px"><input ng-model="quinta.serie" class="form-control"></td>
+                                        <td style="width:70px"><input ng-model="quinta.carga" class="form-control"></td>
                                         <td style="width:150px;">
-                                            <button class="btn btn-success" ng-click="addCredit($index)"><i class="fa fa-plus"></i></button>
-                                            <button class="btn btn-warning" ng-click="cloneCredit($index,credit)"><i class="fa fa-clone"></i></button>
-                                            <button class="btn btn-danger" ng-click="deleteCredit($index)"><i class="fa fa-trash-o"></i></button>
+                                            <button class="btn btn-success" ng-click="addQuinta($index)"><i class="fa fa-plus"></i></button>
+                                            <button class="btn btn-warning" ng-click="cloneQuinta($index,credit)"><i
+                                                    class="fa fa-clone"></i></button>
+                                            <button class="btn btn-danger" ng-click="deleteQuinta($index)"><i class="fa fa-trash-o"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -138,67 +159,83 @@
                 </div>
             </div>
             <div class="row">
-                    <div class="col-xs-6 col-sm-6">
-                        <div class="box">
-                            <div class="box-header">
-                                <h3 class="box-title">Sexta-Feira</h3>
-                            </div>
-                            <div class="box-body no-padding">
-                                <table class="table table-condensed">
-                                    <thead>
-                                        <tr>
-                                            <th>Exercício</th>
-                                            <th>Série</th>
-                                            <th>Carga</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><input class="form-control"></td>
-                                            <td style="width:70px"><input class="form-control"></td>
-                                            <td style="width:70px"><input class="form-control"></td>
-                                            <td style="width:150px;">
-                                                <button class="btn btn-success" ng-click="addCredit($index)"><i class="fa fa-plus"></i></button>
-                                                <button class="btn btn-warning" ng-click="cloneCredit($index,credit)"><i class="fa fa-clone"></i></button>
-                                                <button class="btn btn-danger" ng-click="deleteCredit($index)"><i class="fa fa-trash-o"></i></button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                <div class="col-xs-6 col-sm-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Sexta-Feira</h3>
                         </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-6">
-                        <div class="box">
-                            <div class="box-header">
-                                <h3 class="box-title">Sábado</h3>
-                            </div>
-                            <div class="box-body no-padding">
-                                <table class="table table-condensed">
-                                    <thead>
-                                        <tr>
-                                            <th>Exercício</th>
-                                            <th>Série</th>
-                                            <th>Carga</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><input class="form-control"></td>
-                                            <td style="width:70px;"><input class="form-control"></td>
-                                            <td style="width:70px;;"><input class="form-control"></td>
-                                            <td style="width:150px;">
-                                                <button class="btn btn-success" ng-click="addCredit($index)"><i class="fa fa-plus"></i></button>
-                                                <button class="btn btn-warning" ng-click="cloneCredit($index,credit)"><i class="fa fa-clone"></i></button>
-                                                <button class="btn btn-danger" ng-click="deleteCredit($index)"><i class="fa fa-trash-o"></i></button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="box-body no-padding">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Exercício</th>
+                                        <th>Série</th>
+                                        <th>Carga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="sexta in resultPreencheCampo.sexta">
+                                        <td>
+                                            <select ng-model="sexta.exercicio" class="form-control">
+                                                <option ng-repeat="treino in selectTreino">{{treino.descricao}}</option>
+                                            </select>
+                                        </td>
+                                        <td style="width:70px"><input ng-model="sexta.serie" class="form-control"></td>
+                                        <td style="width:70px"><input ng-model="sexta.carga" class="form-control"></td>
+                                        <td style="width:150px;">
+                                            <button class="btn btn-success" ng-click="addSexta($index)"><i class="fa fa-plus"></i></button>
+                                            <button class="btn btn-warning" ng-click="cloneSexta($index,credit)"><i
+                                                    class="fa fa-clone"></i></button>
+                                            <button class="btn btn-danger" ng-click="deleteSexta($index)"><i class="fa fa-trash-o"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
+                <div class="col-xs-6 col-sm-6">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Sábado</h3>
+                        </div>
+                        <div class="box-body no-padding">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Exercício</th>
+                                        <th>Série</th>
+                                        <th>Carga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="sabado in resultPreencheCampo.sabado">
+                                        <td>
+                                            <select ng-model="sabado.exercicio" class="form-control">
+                                                <option ng-repeat="treino in selectTreino">{{treino.descricao}}</option>
+                                            </select>
+                                        </td>
+                                        <td style="width:70px"><input ng-model="sabado.serie" class="form-control"></td>
+                                        <td style="width:70px"><input ng-model="sabado.carga" class="form-control"></td>
+                                        <td style="width:150px;">
+                                            <button class="btn btn-success" ng-click="addSabado($index)"><i class="fa fa-plus"></i></button>
+                                            <button class="btn btn-warning" ng-click="cloneSabado($index,credit)"><i
+                                                    class="fa fa-clone"></i></button>
+                                            <button class="btn btn-danger" ng-click="deleteSabado($index)"><i class="fa fa-trash-o"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button class="btn btn-primary" ng-click="createTrainee()">Incluir</button>
+                    <button class="btn btn-default" ng-click="cancel()">Cancelar</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div ng-include="'training/searchStudent.html'"></div>

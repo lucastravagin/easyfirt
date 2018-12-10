@@ -1,6 +1,6 @@
 const restful = require('node-restful')
 const mongoose = require('mongoose')
-
+const validators_ = require('../../config/validate')
 
 const treino = new mongoose.Schema({
     exercicio: {type: String, required: true},
@@ -8,17 +8,41 @@ const treino = new mongoose.Schema({
     carga: {type: String, required: true},
 })
 
-const listaDeTreino = new mongoose.Schema({
-    segunda: [treino],
-    terca: [treino],
-    quarta: [treino],
-    quinta: [treino],
-    sexta: [treino],
-    sabado: [treino],
-    domingo: [treino],
+const segundaSchema = new mongoose.Schema({
+    exercicio: {type: String, required: true},
+    serie: {type: Number, min: 0, required: true},
+    carga: {type: Number, min: 0, required: true}
 })
+
+const tercaSchema = new mongoose.Schema({
+    exercicio: {type: String, required: true},
+    serie: {type: Number, min: 0, required: true},
+    carga: {type: Number, min: 0, required: true}
+})
+const quartaSchema = new mongoose.Schema({
+    exercicio: {type: String, required: true},
+    serie: {type: Number, min: 0, required: true},
+    carga: {type: Number, min: 0, required: true}
+})
+const quintaSchema = new mongoose.Schema({
+    exercicio: {type: String, required: true},
+    serie: {type: Number, min: 0, required: true},
+    carga: {type: Number, min: 0, required: true}
+})
+const sextaSchema = new mongoose.Schema({
+    exercicio: {type: String, required: true},
+    serie: {type: Number, min: 0, required: true},
+    carga: {type: Number, min: 0, required: true}
+})
+const sabadoSchema = new mongoose.Schema({
+    exercicio: {type: String, required: true},
+    serie: {type: Number, min: 0, required: true},
+    carga: {type: Number, min: 0, required: true}
+})
+
+
 const avalicaoPeriodicaSchema = new mongoose.Schema({
-    peso: {type: Number, required: true}, 
+    peso: {type: String, required: true}, 
     altura: {type: String, required: true}, 
     subescapular: {type: Number, required: true}, 
     triceps: {type: Number, required: true}, 
@@ -39,10 +63,18 @@ const studentSchema = new mongoose.Schema({
     dataNascimento: {type: String, requried: true},
     rg: {type: String, requried: true},
     sexo: {type: String, required: true},
-    cpf: {type: String, requried: true},
+    cpf: { type: String, required: true, validate: {
+        validator: validators_.validateCPF,
+        message: '{PATH}: CPF Inválido ({VALUE})'
+    } },
     objetivo: {type: String, required: true},
     avaliacoesFisicas: [avalicaoPeriodicaSchema],
-    listaDeTreino: [listaDeTreino]
+    segunda: [segundaSchema],
+    terca: [tercaSchema],
+    quarta: [quartaSchema],
+    quinta: [quintaSchema],
+    sexta: [sextaSchema],
+    sabado: [sabadoSchema]
 })
 
 module.exports = restful.model('Student', studentSchema)

@@ -22,7 +22,7 @@
             </li>
           </ul>
 
-          <a href="#" class="btn btn-primary btn-block"><b>Editar</b></a>
+          
         </div>
         <!-- /.box-body -->
       </div>
@@ -39,51 +39,225 @@
           <div class="active tab-pane" id="dashboard">
 
             <div class="row">
-              <value-box grid="4" color-class="bg-green" icon-class="fa fa-bank" value="(%) {{ studentDashboard.avaliacoesFisicas[0].percentual | number: 2}}"
-                text="Percentual Massa Gorda (%)"></value-box>
-              <value-box grid="4" color-class="bg-red" icon-class="fa fa-credit-card" value="Kg {{ studentDashboard.avaliacoesFisicas[0].massaGorda | number: 2}}"
-                text="Massa Gorda (Kg)"></value-box>
-              <value-box grid="4" color-class="bg-blue" icon-class="fa fa-money" value="Kg {{ studentDashboard.avaliacoesFisicas[0].massaMagra | number: 2}}"
-                text="Massa Magra (Kg)"></value-box>
+              <value-box grid="4" color-class="bg-green" value="(%) {{ ultimaAvalicao.percentual | number: 2}}" text="Percentual Massa Gorda (%)"></value-box>
+              <value-box grid="4" color-class="bg-red" value="Kg {{ ultimaAvalicao.massaGorda | number: 2}}" text="Massa Gorda (Kg)"></value-box>
+              <value-box grid="4" color-class="bg-blue" value="Kg {{ ultimaAvalicao.massaMagra | number: 2}}" text="Massa Magra (Kg)"></value-box>
             </div>
             <div class="row">
               <div class="col-xs-12 col-sm-12">
                 <fieldset>
                   <legend>Ultima Avaliação</legend>
-                  <div class="box">
-                      <!-- /.box-header -->
-                      <div class="box-body no-padding">
-                        <table class="table table-condensed">
-                            <thead>
-                              <tr>
-                                <th>Abdome</th>
-                                <th>Altura</th>
-                                <th>Auxiliar Media</th>
-                                <th>Coxa</th>
-                                <th>Peitoral</th>
-                                <th>Peso</th>
-                                <th>Subescapular</th>
-                                <th>triceps</th>
-                                <th>Data</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr ng-repeat="student in studentDashboard.avaliacoesFisicas">
-                                <td>{{:: studentDashboard.avaliacoesFisicas[0].abdome }}</td>
-                                <td>{{:: studentDashboard.avaliacoesFisicas[0].altura }}</td>
-                                <td>{{:: studentDashboard.avaliacoesFisicas[0].auxiliar_media }}</td>
-                                <td>{{:: studentDashboard.avaliacoesFisicas[0].coxa }}</td>
-                                <td>{{:: studentDashboard.avaliacoesFisicas[0].peitoral }}</td>
-                                <td>{{:: studentDashboard.avaliacoesFisicas[0].peso }}</td>
-                                <td>{{:: studentDashboard.avaliacoesFisicas[0].subescapular }}</td>
-                                <td>{{:: studentDashboard.avaliacoesFisicas[0].triceps }}</td>
-                                <td>{{:: studentDashboard.avaliacoesFisicas[0].dataAvalicao | date:'dd/MM/yyyy' }}</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                      </div>
-                      <!-- /.box-body -->
+                  <div class="box box-yellow">
+                    <!-- /.box-header -->
+                    <div class="box-body no-padding">
+                      <table class="table table-condensed">
+                        <thead>
+                          <tr>
+                            <th>Abdome</th>
+                            <th>Altura</th>
+                            <th>Auxiliar Media</th>
+                            <th>Coxa</th>
+                            <th>Peitoral</th>
+                            <th>Peso</th>
+                            <th>Subescapular</th>
+                            <th>triceps</th>
+                            <th>Data</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{{:: ultimaAvalicao.abdome }}</td>
+                            <td>{{:: ultimaAvalicao.altura }}</td>
+                            <td>{{:: ultimaAvalicao.auxiliar_media }}</td>
+                            <td>{{:: ultimaAvalicao.coxa }}</td>
+                            <td>{{:: ultimaAvalicao.peitoral }}</td>
+                            <td>{{:: ultimaAvalicao.peso }}</td>
+                            <td>{{:: ultimaAvalicao.subescapular }}</td>
+                            <td>{{:: ultimaAvalicao.triceps }}</td>
+                            <td>{{:: ultimaAvalicao.dataAvalicao | date:'dd/MM/yyyy' }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
+                    <!-- /.box-body -->
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12">
+                <fieldset>
+                  <legend>Ultimo Treino</legend>
+                  <div class="tab-pane" id="treino">
+                    <div class="row">
+                      <div class="col-xs-6 col-sm-6">
+                        <fieldset>
+                          <legend>Segunda</legend>
+                          <div class="box box-primary">
+                            <!-- /.box-header -->
+                            <div class="box-body no-padding">
+                              <table class="table table-condensed">
+                                <thead>
+                                  <tr>
+                                    <th>Exercio</th>
+                                    <th>Serie</th>
+                                    <th>Peso</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>{{:: treinoSegunda.exercicio}}</td>
+                                    <td>{{:: treinoSegunda.serie}}</td>
+                                    <td>{{:: treinoSegunda.carga}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!-- /.box-body -->
+                          </div>
+                        </fieldset>
+                      </div>
+                      <div class="col-xs-6 col-sm-6">
+                        <fieldset>
+                          <legend>Terça</legend>
+                          <div class="box box-info">
+                            <!-- /.box-header -->
+                            <div class="box-body no-padding">
+                              <table class="table table-condensed">
+                                <thead>
+                                  <tr>
+                                    <th>Exercio</th>
+                                    <th>Serie</th>
+                                    <th>Peso</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>{{:: treinoTerca.exercicio}}</td>
+                                    <td>{{:: treinoTerca.serie}}</td>
+                                    <td>{{:: treinoTerca.carga}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!-- /.box-body -->
+                          </div>
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-6 col-sm-6">
+                        <fieldset>
+                          <legend>Quarta</legend>
+                          <div class="box box-danger">
+                            <!-- /.box-header -->
+                            <div class="box-body no-padding">
+                              <table class="table table-condensed">
+                                <thead>
+                                  <tr>
+                                    <th>Exercio</th>
+                                    <th>Serie</th>
+                                    <th>Peso</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>{{:: treinoQuarta.exercicio}}</td>
+                                    <td>{{:: treinoQuarta.serie}}</td>
+                                    <td>{{:: treinoQuarta.carga}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!-- /.box-body -->
+                          </div>
+                        </fieldset>
+                      </div>
+                      <div class="col-xs-6 col-sm-6">
+                        <fieldset>
+                          <legend>Quinta</legend>
+                          <div class="box box-warning">
+                            <!-- /.box-header -->
+                            <div class="box-body no-padding">
+                              <table class="table table-condensed">
+                                <thead>
+                                  <tr>
+                                    <th>Exercio</th>
+                                    <th>Serie</th>
+                                    <th>Peso</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>{{:: treinoQuinta.exercicio}}</td>
+                                    <td>{{:: treinoQuinta.serie}}</td>
+                                    <td>{{:: treinoQuinta.carga}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!-- /.box-body -->
+                          </div>
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-6 col-sm-6">
+                        <fieldset>
+                          <legend>Sexta</legend>
+                          <div class="box box-success">
+                            <!-- /.box-header -->
+                            <div class="box-body no-padding">
+                              <table class="table table-condensed">
+                                <thead>
+                                  <tr>
+                                    <th>Exercio</th>
+                                    <th>Serie</th>
+                                    <th>Peso</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>{{:: treinoSexta.exercicio}}</td>
+                                    <td>{{:: treinoSexta.serie}}</td>
+                                    <td>{{:: treinoSexta.carga}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!-- /.box-body -->
+                          </div>
+                        </fieldset>
+                      </div>
+                      <div class="col-xs-6 col-sm-6">
+                        <fieldset>
+                          <legend>Sabado</legend>
+                          <div class="box box-info">
+                            <!-- /.box-header -->
+                            <div class="box-body no-padding">
+                              <table class="table table-condensed">
+                                <thead>
+                                  <tr>
+                                    <th>Exercio</th>
+                                    <th>Serie</th>
+                                    <th>Peso</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>{{:: treinoSabado.exercicio}}</td>
+                                    <td>{{:: treinoSabado.serie}}</td>
+                                    <td>{{:: treinoSabado.carga}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!-- /.box-body -->
+                          </div>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </div>
                 </fieldset>
               </div>
             </div>
@@ -120,9 +294,7 @@
               </table>
             </div>
           </div>
-          <div class="tab-pane" id="treino">
-            Teste
-          </div>
+
         </div>
       </div>
     </div>

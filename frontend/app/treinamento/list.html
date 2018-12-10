@@ -1,0 +1,22 @@
+<div class="box-body" >
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Membro</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="treinamento in treinamentos">
+              <td>{{:: treinamento.descricao }}</td>
+              <td>{{:: treinamento.membro }}</td>
+              <td style="width:100px;">
+                <button class="btn btn-warning" ng-click="showTabUpdate(treinamento)"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger" ng-click="showTabDelete(treinamento)"><i class="fa fa-trash-o"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+     

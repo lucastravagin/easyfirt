@@ -3,10 +3,11 @@
         '$scope',
         '$http',
         'consts',
+        'msgs',
         PhysicalAssessmentController
     ])
 
-    function PhysicalAssessmentController($scope,$http,consts) {
+    function PhysicalAssessmentController($scope,$http,consts,msgs) {
         const url = `${consts.apiUrl}/students`
         
 
@@ -24,11 +25,16 @@
 
         }
 
+    
         $scope.gorduraCorporal = function() {
                 let continua = true
                 let sexo = $scope.resultPreencheCampo.sexo
                 let massa = Number($scope.avaliacoesFisicas.peso)
-                let idade = 20
+                let idade = $scope.resultPreencheCampo.dataNascimento
+                var idadeExtenso = idade.replace(/\//g, ',')
+                var idadeCalculada = idadeExtenso.replace(/0/, '')
+                var array = idadeCalculada.split(',')
+                var idadeFinal = calculaIdade(array)
                 let subescapular = Number($scope.avaliacoesFisicas.subescapular)
                 let auxiliar_media = Number($scope.avaliacoesFisicas.auxiliar_media)
                 let triceps = Number($scope.avaliacoesFisicas.triceps)
@@ -49,9 +55,8 @@
                 
                 
                 if(continua) {
-                    console.log(continua)
                     let ST = subescapular + auxiliar_media + triceps + coxa + supra_iliaca + abdome + peitoral
-                    let percentual = calculaPercentual(sexo, ST, 20)
+                    let percentual = calculaPercentual(sexo, ST, idadeFinal)
                     let massaGorda = massa * percentual / 100
                     let massaMagra = massa - massaGorda
                     $scope.avaliacoesFisicas.percentual = percentual
@@ -67,10 +72,10 @@
             $scope.update = function() {
                 const updateUrl = `${url}/${$scope.resultPreencheCampo._id}`
                 $http.put(updateUrl, $scope.resultPreencheCampo).then(function(response) {
-                    console.log('Operações realizada com sucesso!')
-                    console.log($scope.resultPreencheCampo)
+                    msgs.addSuccess('Operação realizada com sucesso!')
+                    $scope.resultPreencheCampo = {}
                 }).catch(function(resp) {
-                    console.log(resp.data)
+                    msgs.addError(resp.data)
                 })
             }
 
